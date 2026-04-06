@@ -1,0 +1,24 @@
+# Dataset (too large for GitHub - download separately)
+data/
+*.csv
+
+# Trained model weights
+*.h5
+*.keras
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Virtual environment
+venv/
+env/
+.env
+
+# OS files
+.DS_Store
+Thumbs.db
