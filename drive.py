@@ -138,7 +138,7 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     print(f'[*] Loading model: {args.model}')
-    model = load_model(args.model)
+    model = load_model(args.model, compile=False)
     print(f'[*] Model loaded successfully!')
     print(f'[*] Starting autonomous driving server on port 4567...')
     print(f'[*] Open the simulator and select "Autonomous Mode"')

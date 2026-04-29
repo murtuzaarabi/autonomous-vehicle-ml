@@ -1,10 +1,10 @@
-# 🚗 Autonomous Vehicle — Behavioral Cloning
+# Autonomous Vehicle — Behavioral Cloning
 
 > **ML Project** — Training a car to drive itself using only camera images.
 
 ---
 
-## 📌 Project Overview
+## Project Overview
 
 This project implements **Behavioral Cloning** for autonomous driving. A Convolutional Neural Network (CNN) is trained to map images from a dashcam directly to steering angles — learning to drive by imitating human driving data.
 
@@ -16,7 +16,7 @@ The model is trained on real driving data from the **Udacity Self-Driving Car Da
 
 ---
 
-## 🧠 Model Architecture — NVIDIA End-to-End CNN
+## Model Architecture — NVIDIA End-to-End CNN
 
 We implement the architecture from NVIDIA's research paper:
 > *"End to End Learning for Self-Driving Cars"* — Bojarski et al., 2016
@@ -42,43 +42,48 @@ Dense(1)   ← Predicted Steering Angle
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 autonomous-vehicle-ml/
 │
-├── Behavioral_Cloning.ipynb   # Main Jupyter Notebook (training pipeline)
-├── drive.py                   # Autonomous mode server (connects to simulator)
-├── requirements.txt           # Python dependencies
-├── .gitignore                 # Excludes dataset and model weights
+├── drive.py                               # Main file — run this to drive the car
+├── Behavioral_Cloning_Colab_Final.ipynb   # Training notebook (run on Google Colab)
+├── requirements.txt                       # Python dependencies
+├── README.md
+├── .gitignore
 │
-└── data/                      # NOT included in Git (too large)
-    ├── driving_log.csv        # Steering angles for each frame
-    └── IMG/                   # Thousands of driving images
-        ├── center_*.jpg
-        ├── left_*.jpg
-        └── right_*.jpg
+├── support/
+│   └── download_data.py                   # Helper script to download the dataset
+│
+├── data/                                  # Udacity driving dataset
+│   ├── driving_log.csv                    # Steering angles for each frame
+│   └── IMG/                              # Camera images (center, left, right)
+│
+└── others/
+    └── autonomus record.mp4               # Demo recording of autonomous driving
 ```
 
 ---
 
-## 🛠️ Setup Instructions
+## Setup Instructions
 
 ### 1. Install Dependencies
 ```bash
 pip install -r requirements.txt
 ```
 
-### 2. Download the Dataset
-Download the Udacity dataset and extract it into a `data/` folder:
-- [Download Dataset](https://d17h27t6h515a5.cloudfront.net/topher/2016/December/584f6edd_data/data.zip)
+### 2. Get the Dataset
+The dataset is included in the `data/` folder. Alternatively, download it fresh:
+```bash
+python support/download_data.py
+```
 
 ### 3. Train the Model
-Open and run all cells in:
-```
-Behavioral_Cloning.ipynb
-```
-This will train the model and save the best weights as `best_model.h5`.
+Open **`Behavioral_Cloning_Colab_Final.ipynb`** in Google Colab for GPU acceleration:
+- Upload the notebook to [Google Colab](https://colab.research.google.com/)
+- Upload your `data/` folder or mount Google Drive
+- Run all cells → the best model is saved as `best_model.h5`
 
 ### 4. Run Autonomous Mode
 1. Open the **Udacity Simulator** (`Default Windows desktop 64-bit.exe`)
@@ -87,11 +92,11 @@ This will train the model and save the best weights as `best_model.h5`.
 ```bash
 python drive.py best_model.h5
 ```
-4. 🚗 Watch the car drive itself!
+4. Watch the car drive itself!
 
 ---
 
-## 📊 Training Pipeline
+## Training Pipeline
 
 | Step | Description |
 |---|---|
@@ -103,7 +108,7 @@ python drive.py best_model.h5
 
 ---
 
-## 🔑 Key Concepts
+## Key Concepts
 
 - **Behavioral Cloning** — Learning to drive by imitating human demonstrations
 - **Data Augmentation** — Artificially expanding training data with transformations
@@ -112,13 +117,19 @@ python drive.py best_model.h5
 
 ---
 
-## 👥 Team
+## Demo
+
+A recorded demo of the car driving autonomously is available in `others/autonomus record.mp4`.
+
+---
+
+## Team
 
 University ML Project — Autonomous Vehicle using Behavioral Cloning
 
 ---
 
-## 📚 References
+## References
 
 - NVIDIA Paper: [End to End Learning for Self-Driving Cars](https://arxiv.org/abs/1604.07316)
 - Udacity Simulator: [github.com/udacity/self-driving-car-sim](https://github.com/udacity/self-driving-car-sim)

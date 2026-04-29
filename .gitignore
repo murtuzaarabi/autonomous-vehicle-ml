@@ -1,10 +1,13 @@
-# Dataset (too large for GitHub - download separately)
-data/
-*.csv
-
-# Trained model weights
+# Trained model weights (too large for GitHub)
 *.h5
 *.keras
+
+# Udacity Simulator binaries (too large)
+Default Windows desktop 64-bit.exe
+Default Windows desktop 64-bit_Data/
+
+# macOS junk folder
+__MACOSX/
 
 # Jupyter Notebook checkpoints
 .ipynb_checkpoints/
